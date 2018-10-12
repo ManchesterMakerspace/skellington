@@ -6,7 +6,7 @@ provider:
     runtime: nodejs8.10
 
 functions:
-    remember:
+    masquerade:
         handler: skellington.talk
         events:
             - http:

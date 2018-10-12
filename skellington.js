@@ -4,7 +4,7 @@
 var crypto = require('crypto');                      // verify request from slack is from slack with hmac-256
 var querystring = require('querystring');            // Parse urlencoded body
 
-module.exports.remember = function(event, context, callback) {
+module.exports.talk = function(event, context, callback) {
     var body = querystring.parse(event.body);        // Parse urlencoded body
     var response = {statusCode: 403};                // until request is authentically varified as from slack
     if(varify.request(event)){                       // make sure this request comes from slack
