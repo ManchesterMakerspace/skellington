@@ -12,7 +12,7 @@ module.exports.remember = function(event, context, callback) {
         response = {
             statusCode: 200,
             headers: {'Content-type': 'application/json'},   // content type for richer responses beyound just text
-            body: JSON.stringify({'text' : 'message worked'})
+            body: JSON.stringify({'text' : 'I am your king!'})
         };
         callback(null, response);
     }
