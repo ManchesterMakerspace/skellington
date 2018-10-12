@@ -1,0 +1,14 @@
+
+service: skellington
+
+provider:
+    name: aws
+    runtime: nodejs8.10
+
+functions:
+    remember:
+        handler: skellington.talk
+        events:
+            - http:
+                path: talk
+                method: POST

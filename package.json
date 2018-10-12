@@ -1,0 +1,21 @@
+{
+  "name": "skellington",
+  "version": "1.1.2",
+  "description": "Gives members ability to masqurade as a holiday character",
+  "main": "skellington.js",
+  "scripts": {
+    "postversion": "git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManchesterMakerspace/mrs.git"
+  },
+  "author": "Manchester Makerspace",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ManchesterMakerspace/mrs/issues"
+  },
+  "homepage": "https://github.com/ManchesterMakerspace/mrs#readme",
+  "private": true,
+  "dependencies": {}
+}
