@@ -11,7 +11,10 @@ module.exports.talk = function(event, context, callback) {
         response = {
             statusCode: 200,
             headers: {'Content-type': 'application/json'},   // content type for richer responses beyound just text
-            body: JSON.stringify({'text' : body.text})
+            body: JSON.stringify({
+                'response_type' : 'in_channel',
+                'text' : body.text
+            })
         };
         callback(null, response);
     }
