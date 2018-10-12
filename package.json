@@ -17,5 +17,7 @@
   },
   "homepage": "https://github.com/ManchesterMakerspace/mrs#readme",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "request": "^2.88.0"
+  }
 }

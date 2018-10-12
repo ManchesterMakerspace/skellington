@@ -3,6 +3,7 @@
 
 var crypto = require('crypto');                      // verify request from slack is from slack with hmac-256
 var querystring = require('querystring');            // Parse urlencoded body
+var request = require('request');                    // make http post request and the like
 
 module.exports.talk = function(event, context, callback) {
     var body = querystring.parse(event.body);        // Parse urlencoded body
@@ -12,10 +13,18 @@ module.exports.talk = function(event, context, callback) {
             statusCode: 200,
             headers: {'Content-type': 'application/json'},   // content type for richer responses beyound just text
             body: JSON.stringify({
-                'response_type' : 'in_channel',
-                'text' : body.text
+                'response_type' : 'ephemeral',// 'in_channel',
+                'text' : 'About to post ' + body.text + ' in the channel that this app post to.'
             })
         };
+        var options = {
+            uri: process.env.WEBHOOK_URL,
+            method: 'POST',
+            json: {'text': body.text}
+        };
+        request(options, function requestResponse(error, response, body){
+            if(error){console.log('webhook request error ' + error);}
+        });
         callback(null, response);
     }
 };
