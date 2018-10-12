@@ -8,25 +8,12 @@ module.exports.talk = function(event, context, callback) {
     var body = querystring.parse(event.body);        // Parse urlencoded body
     var response = {statusCode: 403};                // until request is authentically varified as from slack
     if(varify.request(event)){                       // make sure this request comes from slack
-        console.log(body);
         response = {
             statusCode: 200,
             headers: {'Content-type': 'application/json'},   // content type for richer responses beyound just text
-            body: JSON.stringify({'text' : 'I am your king!'})
+            body: JSON.stringify({'text' : body.text})
         };
         callback(null, response);
-    }
-};
-
-var helper = {
-    getName: function(contact){
-        var contactArray = contact.split(' ');        // diliminate peices of name array on spaces
-        var name = {first: '', last: ''};             // establish an object to return with expected name data
-        for(var i = 0; i < contactArray.length; i++){ // iterate over all peices of name
-            if(i){ name.last += contactArray[i];}     // just compile segemented peices as a complete last name
-            else { name.first = contactArray[0];}     // Just one first name please
-        }
-        return name;
     }
 };
 
